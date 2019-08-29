@@ -1,0 +1,38 @@
+<div class="formWrap">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/submitted" method="post" class="well">
+        <div class="form-group <%= "alert alert-error" if contacts.messages.include?(:name) %>">
+          <label for="name">Your Name:</label>
+          <input type="text" name="name" class="" placeholder="Please enter your name....">
+          <% contacts.full_messages_for(:name).each do |message| %>
+            <span class="errors label label-important"><%= message %></span>
+          <% end %>
+        </div>
+        <div class="form-group <%= "alert alert-error" if contacts.messages.include?(:email) %>">
+          <label for="email">Your email address:</label>
+          <input type="text" name="email" placeholder="youremail@go.com">
+          <% contacts.full_messages_for(:email).each do |message| %>
+            <span class="errors label label-important"><%= message %></span>
+          <% end %>
+        </div>
+        <div class="form-group <%= "alert alert-error" if contacts.messages.include?(:message) %>">
+          <label for="to">Your message:</label>
+          <textarea name="message" cols='50' rows="5"></textarea><br>
+          <% contacts.full_messages_for(:message).each do |message| %>
+            <span class="errors label label-important"><%= message %></span>
+          <% end %>
+        </div>
+        <div class="form-group <%= "alert alert-error" if contacts.messages.include?(:file) %>">
+          <label for="file">Choose file to upload</label>
+          <input type="file" id="file" name="file">
+          <% contacts.full_messages_for(:file).each do |message| %>
+            <span class="errors label label-important"><%= message %></span>
+          <% end %>
+        </div>
+        <%= recaptcha_tags %>
+        <button type="submit" class="btn" value="Send">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

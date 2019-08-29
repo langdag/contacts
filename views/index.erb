@@ -1,15 +1,27 @@
 <div class="formWrap">
-  <div id='contact-box' class="formWrapper">
-  <div class="span6 clear">
-    <form action="/" method="post" class="well">
-      <label for="name">Your Name:</label>
-      <input type="text" name="name" class="span4" placeholder="John Smith...">
-      <label for="email">Your email address:</label>
-      <input type="text" name="email" class="span4" placeholder="email@example.com">
-      <label for="to">Your message:</label>
-      <textarea name="message" cols='30' rows="10"></textarea><br>
-      <button type="submit" class="btn" value="Send">Submit</button>
-    </form>
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/submitted" method="post" class="well">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" name="name" class="span4" placeholder="John Smith...">
+        </div>
+        <div class="form-group">
+          <label for="email">Your email address:</label>
+          <input type="text" name="email" class="span4" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label for="to">Your message:</label>
+          <textarea name="message" cols='50' rows="5"></textarea><br>
+        </div>
+        <div class="form-group">
+          <label for="file">Choose file to upload</label>
+          <input type="file" id="file" name="file">
+        </div>
+        <%= recaptcha_tags %>
+        <button type="submit" class="btn" value="Send">Submit</button>
+      </form>      
+    </div>
   </div>
 </div>
-</div>
+
