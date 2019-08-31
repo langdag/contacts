@@ -1,7 +1,7 @@
 <div class="formWrap">
   <div class="row">
     <div class="col-md-12">
-      <form action="/submitted" method="post" class="well">
+      <form action="/submitted" method="post" enctype="multipart/form-data">
         <div class="form-group <%= "alert alert-error" if contacts.messages.include?(:name) %>">
           <label for="name">Your Name:</label>
           <input type="text" name="name" class="" placeholder="Please enter your name....">

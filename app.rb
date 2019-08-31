@@ -24,7 +24,7 @@ end
 
 post '/submitted' do
  contacts = Contacts.new(params[:name], params[:email], params[:file], params[:message])
- if contacts.valid?
+ if contacts.valid? && verify_recaptcha(contacts)
    file_name = params[:file][:filename]
    tempfile = params[:file][:tempfile]
 
