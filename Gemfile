@@ -8,6 +8,7 @@ gem 'mail', '~> 2.7', '>= 2.7.1'
 
 group :test do
   gem 'rspec'
+  gem "rack-test"
 end
 
 group :development do
