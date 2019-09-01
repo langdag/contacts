@@ -15,7 +15,7 @@ include Recaptcha::Adapters::ViewMethods
 
 
 get '/' do
-  erb :index, locals: { contacts: Contacts.new }
+  erb :index
 end
 
 Mail.defaults do
