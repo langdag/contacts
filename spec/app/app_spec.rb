@@ -1,8 +1,8 @@
-require File.expand_path '../../spec_helper.rb', __FILE__
+require File.expand_path '../spec_helper.rb', __dir__
 
-RSpec.describe "ContactsApp" do
+RSpec.describe 'ContactsApp' do
 
-  it "should render contacts page" do
+  it 'should render contacts page' do
     get '/', title: 'Contacts Form'
     expect(last_response.status).to eq 200
   end

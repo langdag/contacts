@@ -1,13 +1,11 @@
-require File.expand_path '../../spec_helper.rb', __FILE__
+require File.expand_path '../spec_helper.rb', __dir__
 
-RSpec.describe "sending an email" do
+RSpec.describe 'sending an email' do
   include Mail::Matchers
 
   before(:each) do
     Mail::TestMailer.deliveries.clear
 
-    @mail = Mail.new
-    
     Mail.deliver do
       to 'client@me.com'
       from 'langdag@de.com'
@@ -16,7 +14,7 @@ RSpec.describe "sending an email" do
     end
   end
 
-  it { is_expected.to have_sent_email } 
+  it { is_expected.to have_sent_email }
 
   it { is_expected.to have_sent_email.from('langdag@de.com') }
 

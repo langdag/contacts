@@ -1,12 +1,13 @@
 ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require 'rspec'
-require File.expand_path '../../app.rb', __FILE__
-
+require File.expand_path '../app.rb', __dir__
 
 module RSpecMixin
   include Rack::Test::Methods
-  def app() Sinatra::Application end
+  def app
+    Sinatra::Application
+  end
 end
 
 Mail.defaults do
@@ -16,7 +17,6 @@ end
 RSpec.configure { |c| c.include RSpecMixin }
 
 RSpec.configure do |config|
-
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
@@ -34,7 +34,7 @@ RSpec.configure do |config|
   config.warnings = true
   if config.files_to_run.one?
     config.default_formatter = 'doc'
-  end 
+  end
 
   config.profile_examples = 10
 

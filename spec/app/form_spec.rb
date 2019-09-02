@@ -1,11 +1,10 @@
-require File.expand_path '../../acceptance_helper.rb', __FILE__
+require File.expand_path '../acceptance_helper.rb', __dir__
 
-RSpec.describe "POST request" do
-
+RSpec.describe 'POST request' do
   it 'with message too short' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :message, with: "Hello!"
+    within('form#contacts') do
+      fill_in :message, with: 'Hello!'
     end
     click_button 'Send'
     expect(page).to have_content('Message is too short (minimum is 10 characters)')
@@ -13,8 +12,8 @@ RSpec.describe "POST request" do
 
   it 'with blank message' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :message, with: ""
+    within('form#contacts') do
+      fill_in :message, with: ''
     end
     click_button 'Send'
     expect(page).to have_content('Message can\'t be blank')
@@ -22,8 +21,8 @@ RSpec.describe "POST request" do
 
   it 'with name too short' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :name, with: "AI"
+    within('form#contacts') do
+      fill_in :name, with: 'AI'
     end
     click_button 'Send'
     expect(page).to have_content('Name is too short (minimum is 3 characters)')
@@ -31,10 +30,10 @@ RSpec.describe "POST request" do
 
   it 'with name too long' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :name, with: "Orci nulla pellentesque dignissim enim sit.
+    within('form#contacts') do
+      fill_in :name, with: 'Orci nulla pellentesque dignissim enim sit.
       Augue lacus viverra vitae congue eu consequat ac felis.
-      Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer.
+      Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum.
       Vitae nunc sed velit dignissim sodales ut eu sem integer.
       Nisi scelerisque eu ultrices vitae auctor eu augue ut.
       Sit amet justo donec enim. Magna sit amet purus gravida quis.
@@ -42,10 +41,10 @@ RSpec.describe "POST request" do
       Sociis natoque penatibus et magnis dis parturient.
       Et tortor at risus viverra adipiscing at in.
       Molestie a iaculis at erat pellentesque adipiscing commodo elit at.
-      Quam lacus suspendisse faucibus interdum posuere. Sit amet porttitor eget dolor.
+      Quam lacus suspendisse faucibus interdum posuere. Sit amet porttitor.
       Amet venenatis urna cursus eget nunc scelerisque viverra.
       Id volutpat lacus laoreet non curabitur gravida arcu ac.
-      Sed risus pretium quam vulputate dignissim suspendisse."
+      Sed risus pretium quam vulputate dignissim suspendisse.'
     end
     click_button 'Send'
     expect(page).to have_content('Name is too long (maximum is 250 characters)')
@@ -53,8 +52,8 @@ RSpec.describe "POST request" do
 
   it 'with blank name' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :name, with: ""
+    within('form#contacts') do
+      fill_in :name, with: ''
     end
     click_button 'Send'
     expect(page).to have_content('Name can\'t be blank')
@@ -62,8 +61,8 @@ RSpec.describe "POST request" do
 
   it 'with invalid email' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :email, with: "user23412example.com"
+    within('form#contacts') do
+      fill_in :email, with: 'user23412example.com'
     end
     click_button 'Send'
     expect(page).to have_content('Email is invalid')
@@ -71,19 +70,19 @@ RSpec.describe "POST request" do
 
   it 'with blank email' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :email, with: ""
+    within('form#contacts') do
+      fill_in :email, with: ''
     end
     click_button 'Send'
     expect(page).to have_content('Email can\'t be blank')
   end
 
-  it "with full valid fields" do
+  it 'with full valid fields' do
     visit '/'
-    within('form#contacts') do 
-      fill_in :name, with: "John"
-      fill_in :email, with: "user@example.com"
-      fill_in :message, with: "Hi! Guess I have some great news for you. Messasge me ASAP"
+    within('form#contacts') do
+      fill_in :name, with: 'John'
+      fill_in :email, with: 'user@example.com'
+      fill_in :message, with: 'Hi! Guess I have some great news for you. Messasge me ASAP'
       attach_file('file', 'public/img/images.jpeg')
     end
     click_button 'Send'
