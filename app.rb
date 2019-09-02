@@ -1,8 +1,6 @@
 require('bundler')
 Bundler.require
 require 'dotenv/load'
-require 'pry'
-require 'letter_opener'
 require_relative 'models/contacts'
 require_relative 'config/environment'
 
