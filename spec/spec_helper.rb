@@ -9,6 +9,10 @@ module RSpecMixin
   def app() Sinatra::Application end
 end
 
+Mail.defaults do
+  delivery_method :test
+end
+
 RSpec.configure { |c| c.include RSpecMixin }
 
 RSpec.configure do |config|
