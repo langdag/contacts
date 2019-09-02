@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.6.3'
 gem 'activemodel', require: 'active_model'
 gem 'dotenv', '~> 2.7', '>= 2.7.5'
 gem 'mail', '~> 2.7', '>= 2.7.1'
