@@ -1,24 +1,13 @@
 require('bundler')
 Bundler.require
+require 'dotenv/load'
 require 'pry'
 require 'letter_opener'
 require_relative 'models/contacts'
-
-Recaptcha.configure do |config|
-  config.site_key = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-  config.secret_key = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
-end
-
-include Recaptcha::Adapters::ControllerMethods
-include Recaptcha::Adapters::ViewMethods
+require_relative 'config/environment'
 
 get '/' do
   erb :index
-end
-
-Mail.defaults do
-  delivery_method LetterOpener::DeliveryMethod,
-                  location: File.expand_path('../tmp/letter_opener', __dir__)
 end
 
 post '/submitted' do

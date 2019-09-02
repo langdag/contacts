@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'activemodel', require: 'active_model'
+gem 'dotenv', '~> 2.7', '>= 2.7.5'
 gem 'mail', '~> 2.7', '>= 2.7.1'
 gem 'recaptcha'
 gem 'reek', '~> 5.4'
