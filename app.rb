@@ -17,7 +17,7 @@ post '/submitted' do
 
     Mail.deliver do
       from     contacts.email
-      to       'example@gmail.com'
+      to       ENV['USERNAME']
       subject  contacts.name
       body     contacts.message
       add_file filename: file_name, content: File.read(tempfile)
