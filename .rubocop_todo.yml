@@ -33,6 +33,7 @@ Style/FrozenStringLiteralComment:
     - 'spec/app/form_spec.rb'
     - 'spec/app/mail_spec.rb'
     - 'spec/spec_helper.rb'
+    - 'config/environment.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

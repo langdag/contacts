@@ -8,8 +8,8 @@ configure :development do
   include Recaptcha::Adapters::ViewMethods
 
   Mail.defaults do
-  delivery_method LetterOpener::DeliveryMethod,
-                  location: File.expand_path('../tmp/letter_opener', __dir__)
+    delivery_method LetterOpener::DeliveryMethod,
+                    location: File.expand_path('../tmp/letter_opener', __dir__)
   end
 end
 
@@ -22,16 +22,14 @@ configure :production do
   include Recaptcha::Adapters::ControllerMethods
   include Recaptcha::Adapters::ViewMethods
 
+  options = { address: 'smtp.sendgrid.net',
+              port: 25,
+              domain: ENV['DOMAIN'],
+              password: ENV['EMAIL_PASSWORD'],
+              user_name: 'apikey',
+              authentication: 'plain',
+              enable_starttls_auto: true }
   Mail.defaults do
     delivery_method :smtp, options
   end
-
-  options = { :address          => "smtp.sendgrid.net",
-          :port                 => 25,
-          :domain               => ENV["DOMAIN"],
-          :user_name            => ENV["EMAIL_ADDRESS"],
-          :password             => ENV["EMAIL_PASSWORD"],
-          :user_name            => 'apikey',
-          :authentication       => 'plain',
-          :enable_starttls_auto => true  }
 end
